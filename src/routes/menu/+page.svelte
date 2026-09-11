@@ -36,7 +36,8 @@
 		{
 			id: 'github',
 			label: dict.menu.options.github,
-			href: '/github',
+			href: 'https://github.com/Trefu',
+			external: true,
 			hotkey: 'G',
 			icon: 'book',
 			description: dict.menu.descriptions.github

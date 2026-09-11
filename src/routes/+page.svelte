@@ -2,8 +2,6 @@
 	import { goto } from '$app/navigation';
 	import GameButton from '$lib/components/GameButton.svelte';
 	import GamePanel from '$lib/components/GamePanel.svelte';
-	import IconSprite from '$lib/components/IconSprite.svelte';
-	import Sparkles from '$lib/components/Sparkles.svelte';
 	import { t, language } from '$lib/i18n';
 	import { playSelect, isAudioEnabled, toggleAudio } from '$lib/utils/sfx.svelte';
 
@@ -37,20 +35,7 @@
 
 <svelte:window onkeydown={handleKey} />
 
-<Sparkles />
-
-<div class="lang-bg" aria-hidden="true">
-	<div class="lang-bg__vignette"></div>
-</div>
-
 <main class="lang-screen">
-	<div class="lang-rune lang-rune--left" style:--rot="-12deg" style:--y="-60px">
-		<IconSprite name="wizardHat" size={80} />
-	</div>
-	<div class="lang-rune lang-rune--right" style:--rot="8deg" style:--y="40px">
-		<IconSprite name="compass" size={70} />
-	</div>
-
 	<GamePanel title={dict.lang.chooseTitle} subtitle={dict.lang.chooseSubtitle} padded={false}>
 		{#snippet actions()}
 			<button
@@ -117,25 +102,6 @@
 	.lang-screen :global(.game-panel) {
 		max-width: 520px;
 		width: 100%;
-	}
-
-	.lang-bg {
-		position: fixed;
-		inset: 0;
-		z-index: 1;
-		pointer-events: none;
-		overflow: hidden;
-	}
-
-	.lang-bg__vignette {
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(
-			ellipse at center,
-			transparent 0%,
-			transparent 35%,
-			rgba(0, 0, 0, 0.7) 100%
-		);
 	}
 
 	.lang-options {
@@ -244,38 +210,6 @@
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 	}
 
-	.lang-rune {
-		position: absolute;
-		filter:
-			brightness(0) invert(1)
-			drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6))
-			drop-shadow(0 0 24px rgba(244, 210, 122, 0.45));
-		opacity: 0.8;
-		animation: rune-float 8s ease-in-out infinite;
-		transform: rotate(var(--rot, 0deg)) translateY(var(--y, 0));
-		z-index: 1;
-	}
-
-	.lang-rune--left {
-		left: 6vw;
-		top: 30%;
-	}
-	.lang-rune--right {
-		right: 6vw;
-		top: 50%;
-		animation-delay: -4s;
-	}
-
-	@keyframes rune-float {
-		0%,
-		100% {
-			transform: rotate(var(--rot, 0deg)) translateY(var(--y, 0));
-		}
-		50% {
-			transform: rotate(var(--rot, 0deg)) translateY(calc(var(--y, 0) - 12px));
-		}
-	}
-
 	.hud-btn {
 		font-family: var(--font-rpg);
 		font-size: 0.65rem;
@@ -288,11 +222,5 @@
 		box-shadow:
 			inset 0 1px 0 rgba(255, 255, 255, 0.1),
 			0 2px 0 rgba(0, 0, 0, 0.5);
-	}
-
-	@media (max-width: 700px) {
-		.lang-rune {
-			display: none;
-		}
 	}
 </style>

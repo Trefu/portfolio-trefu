@@ -2,8 +2,6 @@
 	import { goto } from '$app/navigation';
 	import GameButton from '$lib/components/GameButton.svelte';
 	import GamePanel from '$lib/components/GamePanel.svelte';
-	import IconSprite from '$lib/components/IconSprite.svelte';
-	import Sparkles from '$lib/components/Sparkles.svelte';
 	import { t, language } from '$lib/i18n';
 	import { playHover, playSelect, playSwitch, isAudioEnabled, toggleAudio } from '$lib/utils/sfx.svelte';
 
@@ -95,13 +93,6 @@
 
 <svelte:window onkeydown={handleKey} />
 
-<Sparkles />
-
-<div class="menu-bg">
-	<div class="menu-bg__vignette"></div>
-	<div class="menu-bg__stars"></div>
-</div>
-
 <main class="menu-screen">
 	<GamePanel title={dict.menu.title}>
 		{#snippet actions()}
@@ -156,23 +147,6 @@
 			<span class="menu-screen__credits">{dict.menu.footer}</span>
 		</footer>
 	</GamePanel>
-
-	<div class="menu-side menu-side--left" aria-hidden="true">
-		<div class="rune" style:--rot="-8deg" style:--y="0px">
-			<IconSprite name="sword3" size={64} />
-		</div>
-		<div class="rune" style:--rot="6deg" style:--y="120px">
-			<IconSprite name="treasure" size={48} />
-		</div>
-	</div>
-	<div class="menu-side menu-side--right" aria-hidden="true">
-		<div class="rune" style:--rot="12deg" style:--y="40px">
-			<IconSprite name="scroll" size={56} />
-		</div>
-		<div class="rune" style:--rot="-4deg" style:--y="180px">
-			<IconSprite name="helmet" size={52} />
-		</div>
-	</div>
 </main>
 
 <style>
@@ -184,47 +158,6 @@
 		padding: 3rem 1.5rem;
 		position: relative;
 		z-index: 2;
-	}
-
-	.menu-bg {
-		position: fixed;
-		inset: 0;
-		z-index: 1;
-		pointer-events: none;
-		overflow: hidden;
-	}
-
-	.menu-bg__vignette {
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(
-			ellipse at center,
-			transparent 0%,
-			transparent 40%,
-			rgba(0, 0, 0, 0.65) 100%
-		);
-	}
-
-	.menu-bg__stars {
-		position: absolute;
-		inset: 0;
-		background-image:
-			radial-gradient(2px 2px at 20% 30%, rgba(244, 210, 122, 0.4), transparent 50%),
-			radial-gradient(2px 2px at 70% 20%, rgba(244, 210, 122, 0.3), transparent 50%),
-			radial-gradient(2px 2px at 40% 70%, rgba(109, 180, 255, 0.3), transparent 50%),
-			radial-gradient(2px 2px at 80% 60%, rgba(244, 210, 122, 0.4), transparent 50%),
-			radial-gradient(2px 2px at 90% 90%, rgba(244, 210, 122, 0.3), transparent 50%),
-			radial-gradient(2px 2px at 10% 80%, rgba(109, 180, 255, 0.3), transparent 50%);
-		animation: stars-drift 80s linear infinite;
-	}
-
-	@keyframes stars-drift {
-		from {
-			transform: translate(0, 0);
-		}
-		to {
-			transform: translate(-30px, 30px);
-		}
 	}
 
 	.menu-screen :global(.game-panel) {
@@ -325,57 +258,6 @@
 
 	.hud-btn:active {
 		transform: translateY(1px);
-	}
-
-	.menu-side {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.menu-side--left {
-		left: 3vw;
-	}
-	.menu-side--right {
-		right: 3vw;
-	}
-
-	.rune {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		filter:
-			brightness(0) invert(1)
-			drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6))
-			drop-shadow(0 0 24px rgba(244, 210, 122, 0.45));
-		opacity: 0.9;
-		animation: rune-float 6s ease-in-out infinite;
-		transform: rotate(var(--rot, 0deg)) translateY(0);
-	}
-
-	.rune:nth-child(2) {
-		animation-delay: -3s;
-	}
-
-	@keyframes rune-float {
-		0%,
-		100% {
-			transform: rotate(var(--rot, 0deg)) translateY(0);
-		}
-		50% {
-			transform: rotate(var(--rot, 0deg)) translateY(-12px);
-		}
-	}
-
-	@media (max-width: 900px) {
-		.menu-side {
-			display: none;
-		}
 	}
 
 	@media (max-width: 480px) {

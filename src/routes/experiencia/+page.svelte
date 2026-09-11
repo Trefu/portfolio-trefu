@@ -5,7 +5,6 @@
 	import GamePanel from '$lib/components/GamePanel.svelte';
 	import IconSprite from '$lib/components/IconSprite.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
-	import Sparkles from '$lib/components/Sparkles.svelte';
 	import TechBadge from '$lib/components/TechBadge.svelte';
 	import { projects, type ProjectCategory } from '$lib/data/projects';
 	import { techColors } from '$lib/data/techColors';
@@ -88,19 +87,6 @@
 
 <svelte:window onkeydown={handleKey} />
 
-<Sparkles />
-
-<div class="exp-bg" aria-hidden="true">
-	<div class="exp-bg__vignette"></div>
-</div>
-
-<div class="exp-rune exp-rune--left" style:--rot="-10deg">
-	<IconSprite name="scroll" size={64} />
-</div>
-<div class="exp-rune exp-rune--right" style:--rot="8deg">
-	<IconSprite name="map" size={56} />
-</div>
-
 <main class="experience">
 	<div class="experience__nav">
 		<BackToMenu />
@@ -123,7 +109,7 @@
 						{cat.label}
 						{#if cat.id !== 'all'}
 							<span class="chip__count">
-								{projects.filter((p) => p.category === cat.id).length}
+								{visibleProjects.filter((p) => p.category === cat.id).length}
 							</span>
 						{/if}
 					</button>
@@ -213,58 +199,6 @@
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 		text-align: center;
 		padding: 0 1rem;
-	}
-
-	.exp-bg {
-		position: fixed;
-		inset: 0;
-		z-index: 1;
-		pointer-events: none;
-		overflow: hidden;
-	}
-
-	.exp-bg__vignette {
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(
-			ellipse at center,
-			transparent 0%,
-			transparent 40%,
-			rgba(0, 0, 0, 0.7) 100%
-		);
-	}
-
-	.exp-rune {
-		position: fixed;
-		top: 30%;
-		filter:
-			brightness(0) invert(1)
-			drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6))
-			drop-shadow(0 0 24px rgba(244, 210, 122, 0.35));
-		opacity: 0.65;
-		animation: rune-float 8s ease-in-out infinite;
-		transform: rotate(var(--rot, 0deg));
-		z-index: 1;
-		pointer-events: none;
-	}
-
-	.exp-rune--left {
-		left: 4vw;
-	}
-	.exp-rune--right {
-		right: 4vw;
-		top: 60%;
-		animation-delay: -4s;
-	}
-
-	@keyframes rune-float {
-		0%,
-		100% {
-			transform: rotate(var(--rot, 0deg)) translateY(0);
-		}
-		50% {
-			transform: rotate(var(--rot, 0deg)) translateY(-14px);
-		}
 	}
 
 	.filters {
@@ -459,11 +393,5 @@
 		box-shadow:
 			inset 0 1px 0 rgba(255, 255, 255, 0.1),
 			0 2px 0 rgba(0, 0, 0, 0.5);
-	}
-
-	@media (max-width: 800px) {
-		.exp-rune {
-			display: none;
-		}
 	}
 </style>

@@ -28,8 +28,7 @@
 		<div class="todo-view__content">
 			<span class="todo-view__icon" aria-hidden="true">🚧</span>
 			<h3 class="todo-view__heading">{dict.about.coming}</h3>
-			<p class="todo-view__sub">"{dict.about.soon}"</p>
-			<a class="todo-view__cta" href="/menu">← {dict.common.back}</a>
+
 		</div>
 	</RPGFrame>
 </main>

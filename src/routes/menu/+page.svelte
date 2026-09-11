@@ -17,6 +17,7 @@
         id: "experiencia" | "sobre-mi" | "github";
         label: string;
         href: string;
+        external?: boolean;
         hotkey: string;
         icon: "sword" | "shield" | "book";
         description: string;

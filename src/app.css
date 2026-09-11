@@ -1,0 +1,152 @@
+:root {
+	/* === Palette: Retro Moderno RPG === */
+	--color-bg-deep: #070b18;
+	--color-bg: #0f1a2e;
+	--color-bg-soft: #18233d;
+	--color-panel: #1c2742;
+	--color-panel-2: #243153;
+	--color-border: #3a4a73;
+	--color-border-soft: #2a3658;
+
+	--color-gold: #f4d27a;
+	--color-gold-bright: #ffd97a;
+	--color-gold-deep: #b8862b;
+	--color-amber: #e6a23c;
+
+	--color-parchment: #efe2c0;
+	--color-parchment-deep: #c9b78c;
+
+	--color-text: #e7ecf7;
+	--color-text-soft: #a8b3cc;
+	--color-text-mute: #6c7898;
+
+	--color-accent: #6db4ff;
+	--color-accent-deep: #3a78c2;
+
+	--color-success: #6bd49a;
+	--color-warn: #e6a23c;
+	--color-danger: #e07a7a;
+
+	/* === Typography === */
+	--font-rpg: 'Press Start 2P', 'Courier New', monospace;
+	--font-display: 'Cinzel', Georgia, serif;
+	--font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+	/* === Sizes === */
+	--radius-sm: 4px;
+	--radius-md: 10px;
+	--radius-lg: 16px;
+
+	--shadow-panel: 0 8px 28px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(244, 210, 122, 0.12);
+	--shadow-glow-gold: 0 0 16px rgba(244, 210, 122, 0.45);
+
+	--transition-fast: 140ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-med: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	background: var(--color-bg-deep);
+	color: var(--color-text);
+	font-family: var(--font-body);
+	font-size: 16px;
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	background:
+		radial-gradient(1200px 800px at 15% -10%, rgba(244, 210, 122, 0.06), transparent 60%),
+		radial-gradient(1000px 700px at 110% 110%, rgba(109, 180, 255, 0.05), transparent 60%),
+		linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-deep) 100%);
+	background-attachment: fixed;
+	min-height: 100vh;
+}
+
+a {
+	color: var(--color-gold-bright);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+a:hover {
+	color: var(--color-gold);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-display);
+	font-weight: 700;
+	color: var(--color-parchment);
+	letter-spacing: 0.02em;
+	margin: 0;
+}
+
+button {
+	font-family: inherit;
+	color: inherit;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+input,
+textarea,
+select {
+	font-family: inherit;
+	color: inherit;
+}
+
+/* === RPG "Scanline" subtle overlay === */
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	background-image: repeating-linear-gradient(
+		0deg,
+		rgba(255, 255, 255, 0.012) 0,
+		rgba(255, 255, 255, 0.012) 1px,
+		transparent 1px,
+		transparent 3px
+	);
+	z-index: 1;
+	mix-blend-mode: overlay;
+}
+
+#svelte,
+[data-sveltekit-preload-data] > div {
+	position: relative;
+	z-index: 2;
+}
+
+::selection {
+	background: var(--color-gold-deep);
+	color: var(--color-bg-deep);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-track {
+	background: var(--color-bg-deep);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--color-border);
+	border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-amber);
+}

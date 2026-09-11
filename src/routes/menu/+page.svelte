@@ -88,7 +88,7 @@
 </script>
 
 <svelte:head>
-	<title>{dict.menu.title} — Trefu</title>
+	<title>{dict.menu.title}</title>
 	<meta name="description" content={dict.meta.description} />
 </svelte:head>
 

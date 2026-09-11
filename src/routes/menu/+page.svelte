@@ -47,7 +47,7 @@
             external: true,
             hotkey: "G",
             icon: "book",
-            description: dict.menu.descriptions.github,
+            description: '',
         },
     ]);
 

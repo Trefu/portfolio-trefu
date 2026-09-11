@@ -23,7 +23,7 @@ export const en: Translations = {
 		descriptions: {
 			experience: 'Projects I have worked on.',
 			about: 'A bit about me.',
-			github: 'My GitHub, repos and stars.'
+			github: 'My GitHub.'
 		},
 		hint: '↑ ↓ Enter · 1 2 3 · L language · M sound',
 		footer: '© Lucas Leonel Lopez · Trefu · Argentina'

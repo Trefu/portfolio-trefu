@@ -12,6 +12,8 @@
 	import { t, language } from '$lib/i18n';
 	import { playHover, playSelect, isAudioEnabled, toggleAudio } from '$lib/utils/sfx.svelte';
 
+	const visibleProjects = projects.filter((p) => !p.hidden);
+
 	const dict = $derived(t());
 
 	type FilterCat = ProjectCategory | 'all';
@@ -29,12 +31,12 @@
 
 	const allTechs = $derived.by(() => {
 		const set = new Set<string>();
-		for (const p of projects) for (const tech of p.techs) set.add(tech);
+		for (const p of visibleProjects) for (const tech of p.techs) set.add(tech);
 		return Array.from(set).sort((a, b) => a.localeCompare(b));
 	});
 
 	const filtered = $derived(
-		projects.filter((p) => {
+		visibleProjects.filter((p) => {
 			if (activeCategory !== 'all' && p.category !== activeCategory) return false;
 			if (activeTechs.length > 0) {
 				const hasAll = activeTechs.every((t) => p.techs.includes(t));

@@ -189,6 +189,7 @@ export const projects: Project[] = [
 		category: 'web',
 		githubUrl: 'https://github.com/Trefu/Formulario-Freecodecamp',
 		visibility: 'open',
+		hidden: true,
 		year: 2026
 	},
 	{
@@ -202,6 +203,7 @@ export const projects: Project[] = [
 		category: 'web',
 		githubUrl: 'https://github.com/Trefu/Tribute-web',
 		visibility: 'open',
+		hidden: true,
 		year: 2021
 	},
 	{
@@ -215,6 +217,7 @@ export const projects: Project[] = [
 		category: 'web',
 		githubUrl: 'https://github.com/Trefu/tecnical-doc-page',
 		visibility: 'open',
+		hidden: true,
 		year: 2021
 	},
 	{
@@ -345,6 +348,7 @@ export const projects: Project[] = [
 		category: 'backend',
 		githubUrl: 'https://github.com/Trefu/test-paradox',
 		visibility: 'open',
+		hidden: true,
 		year: 2021
 	},
 	{
@@ -434,6 +438,7 @@ export const projects: Project[] = [
 		techs: ['Godot', 'GDScript'],
 		category: 'game',
 		visibility: 'closed',
+		hidden: true,
 		year: 2026
 	}
 ];

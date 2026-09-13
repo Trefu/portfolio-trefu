@@ -56,6 +56,12 @@ export const en: Translations = {
 	},
 	about: {
 		title: 'About me',
+		tagline: 'Fullstack dev and Dungeon Master.',
+		intro:
+			'I began as a frontend developer, self-taught. The freeCodeCamp certification gave me the foundation — small projects, done with care. With that I joined Paradox SRL as a React dev, but they sent me straight to PHP and Yii2. At first it was a leap into the void, but I adapted, and over time I opened up to Laravel, Nuxt 3, Vue 3, Docker and the whole stack you see in Experience.',
+		body:
+			'Programming and being a Dungeon Master are the same thing to me: building systems where people can do interesting things — a Laravel module, a campaign where players break your script, a story that becomes real when someone plays it for real.',
+		closing: 'As long as I have something to build, I\'m in.',
 		coming: 'Section under construction',
 		soon: 'I will be back soon with more details.'
 	},

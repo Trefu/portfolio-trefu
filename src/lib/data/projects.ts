@@ -27,7 +27,7 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-	// === Top: projects with live demo (priority) ===
+	// === Top: live demo projects interleaved with private company work (Paradox-Lab) ===
 	{
 		id: '-rpg-js',
 		name: 'RPG JS',
@@ -44,6 +44,21 @@ export const projects: Project[] = [
 		visibility: 'open',
 		featured: true,
 		year: 2026
+	},
+	{
+		id: 'bioleft',
+		name: 'Bioleft',
+		description: {
+			es: 'Lo hice end-to-end con comunicación directa con el cliente: plataforma agrícola con API Laravel 10 y frontend Nuxt 3, mapas interactivos (Leaflet), generación de PDFs, gráficos y catálogo geo-referenciado de cultivares.',
+			en: 'I built it end-to-end with direct client communication: an agriculture platform with a Laravel 10 API and a Nuxt 3 frontend, interactive maps (Leaflet), PDF generation, charts and a geo-referenced cultivar catalog.'
+		},
+		techs: ['PHP', 'Laravel', 'Nuxt 3', 'Vue 3', 'Vuetify', 'Leaflet', 'MariaDB'],
+		category: 'web',
+		liveUrl: 'https://plataforma.bioleft.org/',
+		previewImage: '/previews/bioleft.png',
+		visibility: 'closed',
+		featured: true,
+		year: 2025
 	},
 	{
 		id: 'landingpage',
@@ -63,6 +78,21 @@ export const projects: Project[] = [
 		year: 2026
 	},
 	{
+		id: 'dbpm',
+		name: 'DBPM',
+		description: {
+			es: 'Plataforma de evaluación de competencias con API Laravel y frontend Nuxt 3: tests cronometrados, dashboards con ApexCharts y módulo de reportes.',
+			en: 'Competency-assessment platform with a Laravel API and Nuxt 3 frontend: timed tests, ApexCharts dashboards and a reporting module.'
+		},
+		techs: ['PHP', 'Laravel', 'Nuxt 3', 'Vue 3', 'Vuetify', 'ApexCharts', 'MariaDB'],
+		category: 'web',
+		liveUrl: 'https://evaluate.hrcs.es/login',
+		previewImage: '/previews/dbpm.png',
+		visibility: 'closed',
+		featured: true,
+		year: 2025
+	},
+	{
 		id: 'random-quotes-generator',
 		name: 'Random Quotes Generator',
 		description: {
@@ -78,6 +108,21 @@ export const projects: Project[] = [
 		visibility: 'open',
 		featured: true,
 		year: 2026
+	},
+	{
+		id: 'edison',
+		name: 'Edison',
+		description: {
+			es: 'Plataforma Yii2 + Nuxt 3 para retail/distribución con checkout MercadoPago, módulo de pedidos en Vue 3, panel admin y exportes a Excel.',
+			en: 'Yii2 + Nuxt 3 retail/distribution platform with MercadoPago checkout, a Vue 3 orders module, admin panel and Excel exports.'
+		},
+		techs: ['PHP', 'Yii2', 'Nuxt 3', 'Vue 3', 'Vuetify', 'MercadoPago', 'MariaDB'],
+		category: 'web',
+		liveUrl: 'https://edisoncapacitores.com/',
+		previewImage: '/previews/edison.png',
+		visibility: 'closed',
+		featured: true,
+		year: 2025
 	},
 	{
 		id: 'drum-machine',
@@ -114,6 +159,21 @@ export const projects: Project[] = [
 		year: 2026
 	},
 	{
+		id: 'feli',
+		name: 'Feli · Multi-Module',
+		description: {
+			es: 'Ecosistema monolítico multi-módulo para un distribuidor industrial: sitio público con MercadoPago, dashboard de distribuidores (cobranzas, garantías, pedidos) y ~11 módulos Vue 3 independientes.',
+			en: 'Multi-module monolith for an industrial distributor: public site with MercadoPago, dealer dashboard (collections, warranties, orders) and ~11 standalone Vue 3 modules.'
+		},
+		techs: ['PHP', 'Yii2', 'Vue 3', 'Vite', 'Tailwind', 'MercadoPago', 'MariaDB'],
+		category: 'web',
+		liveUrl: 'https://www.feli.com.uy/',
+		previewImage: '/previews/feli.png',
+		visibility: 'closed',
+		featured: true,
+		year: 2025
+	},
+	{
 		id: 'calculator',
 		name: 'Calculator',
 		description: {
@@ -131,6 +191,21 @@ export const projects: Project[] = [
 		year: 2026
 	},
 	{
+		id: 'ohwear',
+		name: 'OhWear',
+		description: {
+			es: 'App móvil/web para marca de óptica con API Laravel + Nuxt 3 SSR: autenticación Sanctum, catálogo de gafas y reportes en Excel.',
+			en: 'Mobile/web app for an eyewear brand with a Laravel API + Nuxt 3 SSR: Sanctum auth, eyewear catalog and Excel reports.'
+		},
+		techs: ['PHP', 'Laravel', 'Nuxt 3', 'Vue 3', 'Vuetify', 'MariaDB'],
+		category: 'web',
+		liveUrl: 'https://oh-wear.com/',
+		previewImage: '/previews/ohwear.png',
+		visibility: 'closed',
+		featured: true,
+		year: 2025
+	},
+	{
 		id: 'markdown-previewer',
 		name: 'Markdown Previewer',
 		description: {
@@ -146,6 +221,51 @@ export const projects: Project[] = [
 		visibility: 'open',
 		featured: true,
 		year: 2026
+	},
+	{
+		id: 'rumbo',
+		name: 'Rumbo · Distributor Ecosystem',
+		description: {
+			es: 'Ecosistema Yii2 + Vue 3 de gran escala para mayorista: portal B2B/B2C/B2G con MercadoPago, integración con ERP Bejerman, panel de vendedores, WebSockets y 8+ módulos Vue 3.',
+			en: 'Large-scale Yii2 + Vue 3 ecosystem for a wholesaler: B2B/B2C/B2G portal with MercadoPago, Bejerman ERP integration, vendor panel, WebSockets and 8+ Vue 3 modules.'
+		},
+		techs: ['PHP', 'Yii2', 'Vue 3', 'Vite', 'Tailwind', 'MercadoPago', 'WebSockets', 'MariaDB'],
+		category: 'web',
+		liveUrl: 'https://www.rumbosrl.com.ar/',
+		previewImage: '/previews/rumbo.png',
+		visibility: 'closed',
+		featured: true,
+		year: 2025
+	},
+	{
+		id: 'varteco',
+		name: 'Varteco & Reagens',
+		description: {
+			es: 'Plataforma multi-producto Laravel + Nuxt 3 para dos empresas hermanas: admin unificado deployable a dos targets, módulo de exports con video player (Bitmovin) y Google Maps, más tests E2E en Cypress.',
+			en: 'Laravel + Nuxt 3 multi-product platform for two sister companies: unified admin deployable to two targets, exports module with Bitmovin video player and Google Maps, plus Cypress E2E tests.'
+		},
+		techs: ['PHP', 'Laravel', 'Nuxt 3', 'Vue 3', 'Vuetify', 'Cypress', 'MariaDB'],
+		category: 'web',
+		liveUrl: 'https://www.varteco.com.ar/',
+		previewImage: '/previews/varteco.png',
+		visibility: 'closed',
+		featured: true,
+		year: 2025
+	},
+	{
+		id: 'wegolf',
+		name: 'WeGolf · Golf Travel',
+		description: {
+			es: 'Plataforma Yii2 + Nuxt 3 + Vue 3 para operador de viajes de golf: sitio público con paquetes a resorts y clubes, panel de socios, encuestas, reportes y facturación electrónica AFIP.',
+			en: 'Yii2 + Nuxt 3 + Vue 3 platform for a golf-travel operator: public site with resort and club packages, members panel, surveys, reports and AFIP electronic invoicing.'
+		},
+		techs: ['PHP', 'Yii2', 'Nuxt 3', 'Vue 3', 'Tailwind', 'AFIP', 'MariaDB'],
+		category: 'web',
+		liveUrl: 'https://we.golf/',
+		previewImage: '/previews/wegolf.png',
+		visibility: 'closed',
+		featured: true,
+		year: 2025
 	},
 
 	// === Featured non-Godot without live demo ===

@@ -90,7 +90,7 @@
 <main class="experience">
 	<div class="experience__nav">
 		<BackToMenu />
-		<button class="hud-btn" onclick={() => toggleAudio()} aria-label="Toggle audio" title="M · Mute">
+		<button class="hud-btn" onclick={() => toggleAudio()} aria-label={dict.a11y.toggleAudio} title={dict.a11y.muteTooltip}>
 			{isAudioEnabled() ? '🔊' : '🔇'}
 		</button>
 	</div>

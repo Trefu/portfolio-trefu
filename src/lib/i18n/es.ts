@@ -5,7 +5,7 @@ export const es = {
 	},
 	lang: {
 		chooseTitle: 'Elige tu lengua',
-		chooseSubtitle: 'Choose your tongue',
+		chooseSubtitle: 'Selecciona tu idioma',
 		spanish: 'Español',
 		english: 'English',
 		continue: 'Continuar',
@@ -66,6 +66,16 @@ export const es = {
 		back: 'Volver al menú',
 		backShort: '← Volver',
 		loading: 'Cargando…'
+	},
+	a11y: {
+		toggleAudio: 'Activar/Desactivar audio',
+		muteTooltip: 'M · Silenciar',
+		toggleLanguage: 'Cambiar idioma',
+		languageTooltip: 'L · Idioma'
+	},
+	error: {
+		title: '404 — Trefu',
+		notFound: 'Página no encontrada'
 	}
 };
 

@@ -6,8 +6,8 @@ export const en: Translations = {
 		description: 'Portfolio of Lucas Leonel Lopez (Trefu) — fullstack developer.'
 	},
 	lang: {
-		chooseTitle: 'Choose your tongue',
-		chooseSubtitle: 'Elige tu lengua',
+		chooseTitle: 'Choose your language',
+		chooseSubtitle: 'Select the language for your journey',
 		spanish: 'Español',
 		english: 'English',
 		continue: 'Continue',
@@ -23,7 +23,7 @@ export const en: Translations = {
 		descriptions: {
 			experience: 'Projects I have worked on.',
 			about: 'A bit about me.',
-			github: 'My GitHub.'
+			github: 'My GitHub — repos and stars.'
 		},
 		hint: '↑ ↓ Enter · 1 2 3 · L language · M sound',
 		footer: '© Lucas Leonel Lopez · Trefu · Argentina'
@@ -68,5 +68,15 @@ export const en: Translations = {
 		back: 'Back to menu',
 		backShort: '← Back',
 		loading: 'Loading…'
+	},
+	a11y: {
+		toggleAudio: 'Toggle audio',
+		muteTooltip: 'M · Mute',
+		toggleLanguage: 'Toggle language',
+		languageTooltip: 'L · Language'
+	},
+	error: {
+		title: '404 — Trefu',
+		notFound: 'Page not found'
 	}
 };

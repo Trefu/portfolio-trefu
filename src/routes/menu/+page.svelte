@@ -47,7 +47,7 @@
             external: true,
             hotkey: "G",
             icon: "book",
-            description: '',
+            description: dict.menu.descriptions.github,
         },
     ]);
 
@@ -119,16 +119,16 @@
                     language.toggle();
                     playSwitch();
                 }}
-                aria-label="Toggle language"
-                title="L · Language"
+                aria-label={dict.a11y.toggleLanguage}
+                title={dict.a11y.languageTooltip}
             >
                 🌐 {language.value.toUpperCase()}
             </button>
             <button
                 class="hud-btn hud-btn--mute"
                 onclick={() => toggleAudio()}
-                aria-label="Toggle audio"
-                title="M · Mute"
+                aria-label={dict.a11y.toggleAudio}
+                title={dict.a11y.muteTooltip}
             >
                 {isAudioEnabled() ? "🔊" : "🔇"}
             </button>
@@ -143,8 +143,6 @@
                 >
                     <GameButton
                         selected={selected === i}
-                        icon={entry.icon}
-                        iconSize={32}
                         hotkey={entry.hotkey}
                         onSelect={() => activate(i)}
                         onHover={() => {

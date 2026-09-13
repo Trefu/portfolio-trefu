@@ -7,14 +7,14 @@
 </script>
 
 <svelte:head>
-	<title>404 — Trefu</title>
+	<title>{dict.error.title}</title>
 </svelte:head>
 
 <main class="error">
 	<RPGFrame variant="crimson" title="404 · {dict.common.back}" padded={false}>
 		<div class="error__content">
 			<span class="error__d20" aria-hidden="true">⚀</span>
-			<p class="error__msg">"{page.error?.message ?? 'Page not found'}"</p>
+			<p class="error__msg">"{page.error?.message ?? dict.error.notFound}"</p>
 			<a class="error__link" href="/menu">← {dict.common.back}</a>
 		</div>
 	</RPGFrame>

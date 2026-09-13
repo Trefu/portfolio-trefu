@@ -104,12 +104,9 @@
 		<p class="card__description">{description}</p>
 
 		<div class="card__techs">
-			{#each project.techs.slice(0, 6) as tech (tech)}
+			{#each project.techs as tech (tech)}
 				<TechBadge {tech} size="sm" />
 			{/each}
-			{#if project.techs.length > 6}
-				<span class="card__more">+{project.techs.length - 6}</span>
-			{/if}
 		</div>
 
 		<div class="card__actions">
@@ -301,12 +298,6 @@
 		flex-wrap: wrap;
 		gap: 0.4rem;
 		align-items: center;
-	}
-
-	.card__more {
-		font-family: var(--font-rpg);
-		font-size: 0.6rem;
-		color: var(--color-text-mute);
 	}
 
 	.card__actions {

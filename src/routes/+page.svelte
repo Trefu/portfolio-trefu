@@ -41,8 +41,8 @@
 			<button
 				class="hud-btn"
 				onclick={() => toggleAudio()}
-				aria-label="Toggle audio"
-				title="M · Mute"
+				aria-label={dict.a11y.toggleAudio}
+				title={dict.a11y.muteTooltip}
 			>
 				{isAudioEnabled() ? '🔊' : '🔇'}
 			</button>
@@ -66,7 +66,7 @@
 				onclick={() => pick('en')}
 				aria-pressed={selected === 'en'}
 			>
-				<span class="lang-card__flag">🇬🇧</span>
+				<span class="lang-card__flag">🇺🇸</span>
 				<span class="lang-card__name">{dict.lang.english}</span>
 				<span class="lang-card__key">2</span>
 			</button>
@@ -75,8 +75,6 @@
 		<div class="lang-actions">
 			<GameButton
 				selected={true}
-				icon="sword"
-				iconSize={24}
 				onSelect={() => pick(selected)}
 				variant="carved"
 			>

@@ -58,6 +58,16 @@
 			<div class="card__preview-overlay">
 				<span class="card__preview-link">{dict.experience.viewLive} ↗</span>
 			</div>
+		{:else if project.previewImage}
+			<img
+				class="card__preview-img card__preview-img--static"
+				src={project.previewImage}
+				alt={`Screenshot of ${project.name}`}
+				loading="lazy"
+				decoding="async"
+				width="1280"
+				height="720"
+			/>
 		{:else}
 			<div class="card__placeholder">
 				<svg
@@ -108,12 +118,9 @@
 		<p class="card__description">{description}</p>
 
 		<div class="card__techs">
-			{#each project.techs.slice(0, 6) as tech (tech)}
+			{#each project.techs as tech (tech)}
 				<TechBadge {tech} size="sm" />
 			{/each}
-			{#if project.techs.length > 6}
-				<span class="card__more">+{project.techs.length - 6}</span>
-			{/if}
 		</div>
 
 		<div class="card__actions">
@@ -195,6 +202,14 @@
 	.card:hover .card__preview-linkwrap :global(svg.mockup),
 	.card:hover .card__preview-img {
 		transform: scale(1.04);
+	}
+
+	.card__preview-img--static {
+		pointer-events: none;
+	}
+
+	.card:hover .card__preview-img--static {
+		transform: none;
 	}
 
 	.card__preview-overlay {
@@ -306,12 +321,6 @@
 		flex-wrap: wrap;
 		gap: 0.4rem;
 		align-items: center;
-	}
-
-	.card__more {
-		font-family: var(--font-rpg);
-		font-size: 0.6rem;
-		color: var(--color-text-mute);
 	}
 
 	.card__actions {

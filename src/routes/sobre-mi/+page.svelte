@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import Construction from 'lucide-svelte/icons/construction';
 	import BackToMenu from '$lib/components/BackToMenu.svelte';
-	import RPGFrame from '$lib/components/RPGFrame.svelte';
+	import GamePanel from '$lib/components/GamePanel.svelte';
 	import { t, language } from '$lib/i18n';
 
 	const dict = $derived(t());
@@ -15,13 +15,13 @@
 
 <svelte:head>
 	<title>{dict.about.title} — Trefu</title>
-	<meta name="description" content={dict.meta.description} />
+	<meta name="description" content={dict.about.tagline} />
 </svelte:head>
 
 <svelte:window onkeydown={handleKey} />
 
-<main class="todo-view">
-	<div class="todo-view__nav">
+<main class="about">
+	<div class="about__nav">
 		<BackToMenu />
 	</div>
 
@@ -37,24 +37,32 @@
 </main>
 
 <style>
-	.todo-view {
-		max-width: 640px;
+	.about {
+		max-width: 760px;
 		margin: 0 auto;
-		padding: 2rem 1.5rem;
-		animation: fade-in 500ms ease both;
+		padding: 1.5rem;
+		position: relative;
+		z-index: 2;
 	}
 
-	.todo-view__nav {
+	.about__nav {
+		display: flex;
+		justify-content: space-between;
 		margin-bottom: 1.25rem;
 	}
 
-	.todo-view__content {
+	.about__article {
+		font-family: var(--font-display);
+		font-size: 1.05rem;
+		line-height: 1.7;
+		color: rgba(255, 248, 232, 0.9);
+		text-align: left;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
-		padding: 2rem 1rem;
-		text-align: center;
+		gap: 1.25rem;
+		max-width: 60ch;
+		margin: 0 auto;
 	}
 
 	.todo-view__icon {
@@ -70,45 +78,17 @@
 		margin: 0;
 	}
 
-	.todo-view__sub {
-		font-family: var(--font-display);
+	.about__lead {
 		font-style: italic;
-		color: var(--color-text-soft);
-		margin: 0;
-		font-size: 1rem;
+		color: rgba(255, 248, 232, 0.78);
 	}
 
-	.todo-view__cta {
-		margin-top: 1rem;
-		font-family: var(--font-rpg);
-		font-size: 0.7rem;
-		padding: 0.65rem 1.1rem;
-		background: rgba(244, 210, 122, 0.08);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-sm);
+	.about__closing {
+		font-style: italic;
 		color: var(--color-parchment);
-		text-decoration: none;
-		letter-spacing: 0.05em;
-		transition:
-			background var(--transition-fast),
-			border-color var(--transition-fast),
-			color var(--transition-fast);
-	}
-
-	.todo-view__cta:hover {
-		background: rgba(244, 210, 122, 0.16);
-		border-color: var(--color-gold);
-		color: var(--color-gold-bright);
-	}
-
-	@keyframes fade-in {
-		from {
-			opacity: 0;
-			transform: translateY(8px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
+		text-align: center;
+		padding-top: 0.5rem;
+		border-top: 1px dashed rgba(244, 210, 122, 0.25);
+		margin-top: 0.5rem;
 	}
 </style>

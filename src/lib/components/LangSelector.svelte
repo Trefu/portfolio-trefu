@@ -34,7 +34,7 @@
 		</button>
 
 		<button class="lang-card" onclick={() => pick('en')} class:active={language.value === 'en'}>
-			<span class="lang-card__flag">🇬🇧</span>
+			<span class="lang-card__flag">🇺🇸</span>
 			<span class="lang-card__name">{dict.lang.english}</span>
 			<span class="lang-card__key">2</span>
 		</button>

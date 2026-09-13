@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>404 — Trefu</title>
+	<title>{dict.error.title}</title>
 </svelte:head>
 
 <main class="error">

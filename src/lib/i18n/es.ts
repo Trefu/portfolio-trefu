@@ -54,6 +54,12 @@ export const es = {
 	},
 	about: {
 		title: 'Sobre mí',
+		tagline: 'Fullstack dev y Dungeon Master.',
+		intro:
+			'Empecé como frontend de forma autodidacta. El certificado de freeCodeCamp me dio la base — proyectos chicos, hechos a conciencia. Con eso entré a Paradox SRL como dev React, pero me mandaron directo a PHP y Yii2. Al principio fue un salto al vacío, pero me adapté, y con el tiempo me abrí a Laravel, Nuxt 3, Vue 3, Docker y todo el stack que ves en Experiencias.',
+		body:
+			'Programar y ser Dungeon Master son la misma cosa para mí: construir sistemas donde la gente haga cosas interesantes — un módulo Laravel, una campaña donde los jugadores te rompen el guion, una historia que se vuelve real cuando alguien la juega en serio.',
+		closing: 'Mientras tenga algo que construir, estoy.',
 		coming: 'Sección en construcción',
 		soon: 'Volveré pronto con más detalles.'
 	},
@@ -66,6 +72,16 @@ export const es = {
 		back: 'Volver al menú',
 		backShort: '← Volver',
 		loading: 'Cargando…'
+	},
+	a11y: {
+		toggleAudio: 'Activar/Desactivar audio',
+		muteTooltip: 'M · Silenciar',
+		toggleLanguage: 'Cambiar idioma',
+		languageTooltip: 'L · Idioma'
+	},
+	error: {
+		title: '404 — Trefu',
+		notFound: 'Página no encontrada'
 	}
 };
 

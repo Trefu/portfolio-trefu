@@ -56,6 +56,16 @@
 			<div class="card__preview-overlay">
 				<span class="card__preview-link">{dict.experience.viewLive} ↗</span>
 			</div>
+		{:else if project.previewImage}
+			<img
+				class="card__preview-img card__preview-img--static"
+				src={project.previewImage}
+				alt={`Screenshot of ${project.name}`}
+				loading="lazy"
+				decoding="async"
+				width="1280"
+				height="720"
+			/>
 		{:else}
 			<div class="card__placeholder">
 				<svg
@@ -188,6 +198,14 @@
 	.card:hover .card__preview-linkwrap :global(svg.mockup),
 	.card:hover .card__preview-img {
 		transform: scale(1.04);
+	}
+
+	.card__preview-img--static {
+		pointer-events: none;
+	}
+
+	.card:hover .card__preview-img--static {
+		transform: none;
 	}
 
 	.card__preview-overlay {

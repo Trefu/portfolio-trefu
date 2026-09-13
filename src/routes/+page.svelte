@@ -3,11 +3,17 @@
 	import GameButton from '$lib/components/GameButton.svelte';
 	import GamePanel from '$lib/components/GamePanel.svelte';
 	import { t, language } from '$lib/i18n';
-	import { playSelect, isAudioEnabled, toggleAudio } from '$lib/utils/sfx.svelte';
+	import { playSelect, playHover, isAudioEnabled, toggleAudio } from '$lib/utils/sfx.svelte';
 
 	const dict = $derived(t());
 
+	let started = $state(false);
 	let selected = $state<'es' | 'en'>(language.value);
+
+	function start() {
+		started = true;
+		playSelect();
+	}
 
 	function pick(l: 'es' | 'en') {
 		selected = l;
@@ -17,6 +23,13 @@
 	}
 
 	function handleKey(e: KeyboardEvent) {
+		if (!started) {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				start();
+			}
+			return;
+		}
 		if (e.key === '1') pick('es');
 		else if (e.key === '2') pick('en');
 		else if (e.key === 'Enter' || e.key === ' ') {
@@ -36,54 +49,74 @@
 <svelte:window onkeydown={handleKey} />
 
 <main class="lang-screen">
-	<GamePanel title={dict.lang.chooseTitle} subtitle={dict.lang.chooseSubtitle} padded={false}>
-		{#snippet actions()}
-			<button
-				class="hud-btn"
-				onclick={() => toggleAudio()}
-				aria-label={dict.a11y.toggleAudio}
-				title={dict.a11y.muteTooltip}
-			>
-				{isAudioEnabled() ? '🔊' : '🔇'}
-			</button>
-		{/snippet}
+	{#if !started}
+		<GamePanel title={dict.lang.startTitle}>
+			{#snippet actions()}
+				<button
+					class="hud-btn"
+					onclick={() => toggleAudio()}
+					aria-label={dict.a11y.toggleAudio}
+					title={dict.a11y.muteTooltip}
+				>
+					{isAudioEnabled() ? '🔊' : '🔇'}
+				</button>
+			{/snippet}
 
-		<div class="lang-options">
-			<button
-				class="lang-card"
-				class:active={selected === 'es'}
-				onclick={() => pick('es')}
-				aria-pressed={selected === 'es'}
-			>
-				<span class="lang-card__flag">🇪🇸</span>
-				<span class="lang-card__name">{dict.lang.spanish}</span>
-				<span class="lang-card__key">1</span>
-			</button>
+			<div class="start-screen">
+				<GameButton
+					selected={true}
+					variant="carved"
+					fullWidth
+					onSelect={start}
+				>
+					▶ {dict.lang.startHint}
+				</GameButton>
+			</div>
+		</GamePanel>
+	{:else}
+		<div class="lang-wrap" data-anim="in">
+			<GamePanel title={dict.lang.chooseTitle} subtitle={dict.lang.chooseSubtitle} padded={false}>
+				{#snippet actions()}
+					<button
+						class="hud-btn"
+						onclick={() => toggleAudio()}
+						aria-label={dict.a11y.toggleAudio}
+						title={dict.a11y.muteTooltip}
+					>
+						{isAudioEnabled() ? '🔊' : '🔇'}
+					</button>
+				{/snippet}
 
-			<button
-				class="lang-card"
-				class:active={selected === 'en'}
-				onclick={() => pick('en')}
-				aria-pressed={selected === 'en'}
-			>
-				<span class="lang-card__flag">🇺🇸</span>
-				<span class="lang-card__name">{dict.lang.english}</span>
-				<span class="lang-card__key">2</span>
-			</button>
+				<div class="lang-options">
+<button
+					class="lang-card"
+					onclick={() => pick('es')}
+					onmouseenter={() => playHover()}
+					onfocus={() => playHover()}
+					aria-pressed={selected === 'es'}
+				>
+					<span class="lang-card__flag">🇪🇸</span>
+					<span class="lang-card__name">{dict.lang.spanish}</span>
+					<span class="lang-card__key">1</span>
+				</button>
+
+				<button
+					class="lang-card"
+					onclick={() => pick('en')}
+					onmouseenter={() => playHover()}
+					onfocus={() => playHover()}
+					aria-pressed={selected === 'en'}
+				>
+					<span class="lang-card__flag">🇺🇸</span>
+					<span class="lang-card__name">{dict.lang.english}</span>
+					<span class="lang-card__key">2</span>
+				</button>
+				</div>
+
+				<p class="lang-hint">{dict.lang.hint}</p>
+			</GamePanel>
 		</div>
-
-		<div class="lang-actions">
-			<GameButton
-				selected={true}
-				onSelect={() => pick(selected)}
-				variant="carved"
-			>
-				{dict.lang.continue}
-			</GameButton>
-		</div>
-
-		<p class="lang-hint">{dict.lang.hint}</p>
-	</GamePanel>
+	{/if}
 </main>
 
 <style>
@@ -100,6 +133,36 @@
 	.lang-screen :global(.game-panel) {
 		max-width: 520px;
 		width: 100%;
+	}
+
+	.start-screen {
+		display: flex;
+		justify-content: center;
+		padding: 2.5rem 1.5rem;
+		animation: start-blink 1.4s ease-in-out infinite;
+	}
+
+	@keyframes start-blink {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.55; }
+	}
+
+	.lang-wrap {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		animation: lang-in 420ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+	}
+
+	@keyframes lang-in {
+		from {
+			opacity: 0;
+			transform: scale(0.96) translateY(8px);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
 	}
 
 	.lang-options {
@@ -143,15 +206,6 @@
 			inset 0 -2px 0 rgba(0, 0, 0, 0.35),
 			0 6px 0 rgba(0, 0, 0, 0.4),
 			0 0 24px rgba(244, 210, 122, 0.4);
-	}
-
-	.lang-card.active {
-		border-color: #ffd97a;
-		box-shadow:
-			inset 0 1px 0 rgba(255, 220, 160, 0.45),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.35),
-			0 4px 0 rgba(0, 0, 0, 0.4),
-			0 0 28px rgba(244, 210, 122, 0.55);
 		animation: card-pulse 1.6s ease-in-out infinite;
 	}
 
@@ -190,12 +244,6 @@
 		border: 1px solid #c79a3a;
 		border-radius: 4px;
 		box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
-	}
-
-	.lang-actions {
-		display: flex;
-		justify-content: center;
-		padding: 1rem 1.5rem;
 	}
 
 	.lang-hint {

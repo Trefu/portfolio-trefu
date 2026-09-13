@@ -1,4 +1,6 @@
 <script lang="ts">
+	import GitBranch from 'lucide-svelte/icons/git-branch';
+	import Map from 'lucide-svelte/icons/map';
 	import type { Project } from '$lib/data/projects';
 	import { pickLocalized, t } from '$lib/i18n';
 	import PreviewMockup from './PreviewMockup.svelte';
@@ -87,7 +89,9 @@
 					<circle cx="260" cy="70" r="4" fill="#f4d27a" />
 				</svg>
 				<div class="card__placeholder-text">
-					<span class="card__placeholder-emoji" aria-hidden="true">🗺️</span>
+					<span class="card__placeholder-emoji" aria-hidden="true">
+						<Map size={20} strokeWidth={1.5} />
+					</span>
 					<span class="card__placeholder-label">{dict.experience.noLive}</span>
 				</div>
 			</div>
@@ -120,7 +124,7 @@
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<span aria-hidden="true">📜</span>
+					<GitBranch size={14} strokeWidth={1.8} />
 					{dict.experience.viewRepo}
 				</a>
 			{/if}
@@ -251,7 +255,8 @@
 	}
 
 	.card__placeholder-emoji {
-		font-size: 1.5rem;
+		display: inline-flex;
+		color: var(--color-parchment);
 	}
 
 	.card__content {

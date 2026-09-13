@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Volume2 from 'lucide-svelte/icons/volume-2';
+	import VolumeX from 'lucide-svelte/icons/volume-x';
 	import BackToMenu from '$lib/components/BackToMenu.svelte';
 	import GameButton from '$lib/components/GameButton.svelte';
 	import GamePanel from '$lib/components/GamePanel.svelte';
@@ -91,7 +93,11 @@
 	<div class="experience__nav">
 		<BackToMenu />
 		<button class="hud-btn" onclick={() => toggleAudio()} aria-label="Toggle audio" title="M · Mute">
-			{isAudioEnabled() ? '🔊' : '🔇'}
+			{#if isAudioEnabled()}
+				<Volume2 size={14} />
+			{:else}
+				<VolumeX size={14} />
+			{/if}
 		</button>
 	</div>
 

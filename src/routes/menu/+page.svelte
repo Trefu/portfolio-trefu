@@ -1,5 +1,8 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
+    import Globe from "lucide-svelte/icons/globe";
+    import Volume2 from "lucide-svelte/icons/volume-2";
+    import VolumeX from "lucide-svelte/icons/volume-x";
     import GameButton from "$lib/components/GameButton.svelte";
     import GamePanel from "$lib/components/GamePanel.svelte";
     import { t, language } from "$lib/i18n";
@@ -122,7 +125,7 @@
                 aria-label="Toggle language"
                 title="L · Language"
             >
-                🌐 {language.value.toUpperCase()}
+                <Globe size={14} /> {language.value.toUpperCase()}
             </button>
             <button
                 class="hud-btn hud-btn--mute"
@@ -130,7 +133,11 @@
                 aria-label="Toggle audio"
                 title="M · Mute"
             >
-                {isAudioEnabled() ? "🔊" : "🔇"}
+                {#if isAudioEnabled()}
+                    <Volume2 size={14} />
+                {:else}
+                    <VolumeX size={14} />
+                {/if}
             </button>
         {/snippet}
 

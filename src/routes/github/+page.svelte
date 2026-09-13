@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import GitBranch from 'lucide-svelte/icons/git-branch';
 	import BackToMenu from '$lib/components/BackToMenu.svelte';
 	import RPGFrame from '$lib/components/RPGFrame.svelte';
 	import { t, language } from '$lib/i18n';
@@ -26,12 +27,14 @@
 
 	<RPGFrame variant="parchment" title={dict.github.title}>
 		<div class="todo-view__content">
-			<span class="todo-view__icon" aria-hidden="true">📜</span>
+			<span class="todo-view__icon" aria-hidden="true">
+				<GitBranch size={48} strokeWidth={1.5} />
+			</span>
 			<h3 class="todo-view__heading">{dict.github.coming}</h3>
 			<p class="todo-view__sub">"{dict.github.soon}"</p>
 			<div class="todo-view__links">
 				<a class="todo-view__cta" href="https://github.com/Trefu" target="_blank" rel="noopener noreferrer">
-					GitHub ↗
+					<GitBranch size={16} /> GitHub
 				</a>
 				<a class="todo-view__cta todo-view__cta--ghost" href="/menu">
 					← {dict.common.back}
@@ -63,8 +66,9 @@
 	}
 
 	.todo-view__icon {
-		font-size: 3rem;
+		display: inline-flex;
 		opacity: 0.7;
+		color: var(--color-parchment-deep);
 	}
 
 	.todo-view__heading {

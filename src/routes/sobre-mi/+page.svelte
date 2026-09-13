@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Construction from 'lucide-svelte/icons/construction';
 	import BackToMenu from '$lib/components/BackToMenu.svelte';
 	import RPGFrame from '$lib/components/RPGFrame.svelte';
 	import { t, language } from '$lib/i18n';
@@ -26,7 +27,9 @@
 
 	<RPGFrame variant="crimson" title={dict.about.title}>
 		<div class="todo-view__content">
-			<span class="todo-view__icon" aria-hidden="true">🚧</span>
+			<span class="todo-view__icon" aria-hidden="true">
+				<Construction size={48} strokeWidth={1.5} />
+			</span>
 			<h3 class="todo-view__heading">{dict.about.coming}</h3>
 
 		</div>
@@ -55,8 +58,9 @@
 	}
 
 	.todo-view__icon {
-		font-size: 3rem;
+		display: inline-flex;
 		opacity: 0.6;
+		color: #b54a4a;
 	}
 
 	.todo-view__heading {

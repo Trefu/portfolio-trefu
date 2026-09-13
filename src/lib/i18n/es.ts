@@ -4,8 +4,8 @@ export const es = {
 		description: 'Portfolio de Lucas Leonel Lopez (Trefu) — desarrollador fullstack.'
 	},
 	lang: {
-		chooseTitle: 'Elige tu lengua',
-		chooseSubtitle: 'Choose your tongue',
+		chooseTitle: 'Elige tu idioma',
+		chooseSubtitle: 'Choose your language',
 		spanish: 'Español',
 		english: 'English',
 		continue: 'Continuar',

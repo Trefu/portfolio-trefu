@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Dices from 'lucide-svelte/icons/dices';
 	import RPGFrame from '$lib/components/RPGFrame.svelte';
 	import { t } from '$lib/i18n';
 
@@ -13,7 +14,9 @@
 <main class="error">
 	<RPGFrame variant="crimson" title="404 · {dict.common.back}" padded={false}>
 		<div class="error__content">
-			<span class="error__d20" aria-hidden="true">⚀</span>
+			<span class="error__d20" aria-hidden="true">
+				<Dices size={64} strokeWidth={1.5} />
+			</span>
 			<p class="error__msg">"{page.error?.message ?? 'Page not found'}"</p>
 			<a class="error__link" href="/menu">← {dict.common.back}</a>
 		</div>
@@ -44,7 +47,7 @@
 	}
 
 	.error__d20 {
-		font-size: 4rem;
+		display: inline-flex;
 		color: var(--color-amber);
 		opacity: 0.7;
 	}

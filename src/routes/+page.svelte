@@ -4,6 +4,8 @@
 	import GamePanel from '$lib/components/GamePanel.svelte';
 	import { t, language } from '$lib/i18n';
 	import { playSelect, isAudioEnabled, toggleAudio } from '$lib/utils/sfx.svelte';
+	import Volume2 from 'lucide-svelte/icons/volume-2';
+	import VolumeX from 'lucide-svelte/icons/volume-x';
 
 	const dict = $derived(t());
 
@@ -44,7 +46,11 @@
 				aria-label="Toggle audio"
 				title="M · Mute"
 			>
-				{isAudioEnabled() ? '🔊' : '🔇'}
+				{#if isAudioEnabled()}
+					<Volume2 size={14} />
+				{:else}
+					<VolumeX size={14} />
+				{/if}
 			</button>
 		{/snippet}
 
@@ -55,7 +61,7 @@
 				onclick={() => pick('es')}
 				aria-pressed={selected === 'es'}
 			>
-				<span class="lang-card__flag">🇪🇸</span>
+				<span class="lang-card__code">ES</span>
 				<span class="lang-card__name">{dict.lang.spanish}</span>
 				<span class="lang-card__key">1</span>
 			</button>
@@ -66,7 +72,7 @@
 				onclick={() => pick('en')}
 				aria-pressed={selected === 'en'}
 			>
-				<span class="lang-card__flag">🇬🇧</span>
+				<span class="lang-card__code">EN</span>
 				<span class="lang-card__name">{dict.lang.english}</span>
 				<span class="lang-card__key">2</span>
 			</button>
@@ -167,10 +173,14 @@
 		}
 	}
 
-	.lang-card__flag {
-		font-size: 2.6rem;
+	.lang-card__code {
+		font-family: var(--font-display);
+		font-size: 2.4rem;
+		font-weight: 700;
 		line-height: 1;
-		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+		letter-spacing: 0.1em;
+		color: #fff8e8;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 16px rgba(244, 210, 122, 0.35);
 	}
 
 	.lang-card__name {

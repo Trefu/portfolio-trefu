@@ -6,8 +6,8 @@ export const en: Translations = {
 		description: 'Portfolio of Lucas Leonel Lopez (Trefu) — fullstack developer.'
 	},
 	lang: {
-		chooseTitle: 'Choose your tongue',
-		chooseSubtitle: 'Elige tu lengua',
+		chooseTitle: 'Choose your language',
+		chooseSubtitle: 'Elige tu idioma',
 		spanish: 'Español',
 		english: 'English',
 		continue: 'Continue',

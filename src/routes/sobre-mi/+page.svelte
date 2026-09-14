@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Construction from 'lucide-svelte/icons/construction';
 	import BackToMenu from '$lib/components/BackToMenu.svelte';
 	import GamePanel from '$lib/components/GamePanel.svelte';
 	import { t, language } from '$lib/i18n';
@@ -25,15 +24,13 @@
 		<BackToMenu />
 	</div>
 
-	<RPGFrame variant="crimson" title={dict.about.title}>
-		<div class="todo-view__content">
-			<span class="todo-view__icon" aria-hidden="true">
-				<Construction size={48} strokeWidth={1.5} />
-			</span>
-			<h3 class="todo-view__heading">{dict.about.coming}</h3>
-
-		</div>
-	</RPGFrame>
+	<GamePanel title={dict.about.title} subtitle={dict.about.tagline}>
+		<article class="about__article">
+			<p class="about__lead">{dict.about.intro}</p>
+			<p>{dict.about.body}</p>
+			<p class="about__closing">{dict.about.closing}</p>
+		</article>
+	</GamePanel>
 </main>
 
 <style>
@@ -65,16 +62,7 @@
 		margin: 0 auto;
 	}
 
-	.todo-view__icon {
-		display: inline-flex;
-		opacity: 0.6;
-		color: #b54a4a;
-	}
-
-	.todo-view__heading {
-		font-family: var(--font-display);
-		font-size: 1.25rem;
-		color: var(--color-parchment);
+	.about__article p {
 		margin: 0;
 	}
 

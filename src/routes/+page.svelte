@@ -51,44 +51,80 @@
 <svelte:window onkeydown={handleKey} />
 
 <main class="lang-screen">
-	<GamePanel title={dict.lang.chooseTitle} subtitle={dict.lang.chooseSubtitle} padded={false}>
-		{#snippet actions()}
-			<button
-				class="hud-btn"
-				onclick={() => toggleAudio()}
-				aria-label="Toggle audio"
-				title="M · Mute"
-			>
-				{#if isAudioEnabled()}
-					<Volume2 size={14} />
-				{:else}
-					<VolumeX size={14} />
-				{/if}
-			</button>
-		{/snippet}
+	{#if !started}
+		<GamePanel title={dict.lang.startTitle}>
+			{#snippet actions()}
+				<button
+					class="hud-btn"
+					onclick={() => toggleAudio()}
+					aria-label={dict.a11y.toggleAudio}
+					title={dict.a11y.muteTooltip}
+				>
+					{#if isAudioEnabled()}
+						<Volume2 size={14} />
+					{:else}
+						<VolumeX size={14} />
+					{/if}
+				</button>
+			{/snippet}
 
-		<div class="lang-options">
-			<button
-				class="lang-card"
-				class:active={selected === 'es'}
-				onclick={() => pick('es')}
-				aria-pressed={selected === 'es'}
-			>
-				<span class="lang-card__code">ES</span>
-				<span class="lang-card__name">{dict.lang.spanish}</span>
-				<span class="lang-card__key">1</span>
-			</button>
+			<div class="start-screen">
+				<GameButton
+					selected={true}
+					variant="carved"
+					fullWidth
+					onSelect={start}
+				>
+					▶ {dict.lang.startHint}
+				</GameButton>
+			</div>
+		</GamePanel>
+	{:else}
+		<div class="lang-wrap">
+			<GamePanel title={dict.lang.chooseTitle} subtitle={dict.lang.chooseSubtitle} padded={false}>
+				{#snippet actions()}
+					<button
+						class="hud-btn"
+						onclick={() => toggleAudio()}
+						aria-label={dict.a11y.toggleAudio}
+						title={dict.a11y.muteTooltip}
+					>
+						{#if isAudioEnabled()}
+							<Volume2 size={14} />
+						{:else}
+							<VolumeX size={14} />
+						{/if}
+					</button>
+				{/snippet}
 
-			<button
-				class="lang-card"
-				class:active={selected === 'en'}
-				onclick={() => pick('en')}
-				aria-pressed={selected === 'en'}
-			>
-				<span class="lang-card__code">EN</span>
-				<span class="lang-card__name">{dict.lang.english}</span>
-				<span class="lang-card__key">2</span>
-			</button>
+				<div class="lang-options">
+					<button
+						class="lang-card"
+						onclick={() => pick('es')}
+						onmouseenter={() => playSelect()}
+						onfocus={() => playSelect()}
+						aria-pressed={selected === 'es'}
+					>
+						<span class="lang-card__code">ES</span>
+						<span class="lang-card__name">{dict.lang.spanish}</span>
+						<span class="lang-card__key">1</span>
+					</button>
+
+					<button
+						class="lang-card"
+						onclick={() => pick('en')}
+						onmouseenter={() => playSelect()}
+						onfocus={() => playSelect()}
+						aria-pressed={selected === 'en'}
+					>
+						<span class="lang-card__code">EN</span>
+						<span class="lang-card__name">{dict.lang.english}</span>
+						<span class="lang-card__key">2</span>
+					</button>
+				</div>
+
+				<p class="lang-hint">{dict.lang.hint}</p>
+			</GamePanel>
 		</div>
 	{/if}
 </main>
@@ -235,6 +271,9 @@
 	}
 
 	.hud-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		font-family: var(--font-rpg);
 		font-size: 0.65rem;
 		padding: 0.4rem 0.65rem;

@@ -1,5 +1,6 @@
 import type { IconName } from './icons';
-import type { MockupTheme } from '$lib/components/PreviewMockup.svelte';
+
+export type MockupTheme = 'dark' | 'fantasy' | 'light' | 'red' | 'warm';
 
 export type ProjectCategory = 'web' | 'game' | 'backend' | 'tools' | 'other';
 export type Visibility = 'open' | 'closed';

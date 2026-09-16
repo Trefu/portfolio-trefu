@@ -47,6 +47,22 @@ export const projects: Project[] = [
         year: 2026
     },
     {
+        id: 'e-commerce-react',
+        name: 'Let It Rip · Beyblade Store',
+        description: {
+            es: 'E-commerce completo de Beyblades con Vue 3, Pinia y animaciones 3D. Catálogo, wishlist, checkout en 3 pasos y orden animada.',
+            en: 'Full Beyblade e-commerce with Vue 3, Pinia and 3D animations. Catalog, wishlist, 3-step checkout and animated order timeline.'
+        },
+        techs: ['Vue', 'Pinia', 'Tailwind', 'Vite', 'HTML5', 'CSS'],
+        category: 'web',
+        githubUrl: 'https://github.com/Trefu/e-commerce-react',
+        liveUrl: 'https://let-it-rip.trefu.ar',
+        previewImage: '/previews/let-it-rip.gif',
+        visibility: 'open',
+        featured: true,
+        year: 2026
+    },
+    {
         id: 'bioleft',
         name: 'Bioleft',
         description: {
@@ -262,22 +278,6 @@ export const projects: Project[] = [
     },
 
     // === Featured non-Godot without live demo ===
-    {
-        id: 'e-commerce-react',
-        name: 'Let It Rip · Beyblade Store',
-        description: {
-            es: 'E-commerce completo de Beyblades con Vue 3, Pinia y animaciones 3D. Catálogo, wishlist, checkout en 3 pasos y orden animada.',
-            en: 'Full Beyblade e-commerce with Vue 3, Pinia and 3D animations. Catalog, wishlist, 3-step checkout and animated order timeline.'
-        },
-        techs: ['Vue', 'Pinia', 'Tailwind', 'Vite', 'HTML5', 'CSS'],
-        category: 'web',
-        githubUrl: 'https://github.com/Trefu/e-commerce-react',
-        liveUrl: 'https://let-it-rip.trefu.ar',
-        previewImage: '/previews/let-it-rip.gif',
-        visibility: 'open',
-        featured: true,
-        year: 2026
-    },
     {
         id: 'saas-gastro',
         name: 'SaaS Gastronómico',

@@ -542,7 +542,7 @@ export const projects: Project[] = [
 	},
 	{
 		id: 'legion-games-fps',
-		name: 'Legion Games · FPS',
+		name: 'Legion Games – FPS',
 		description: {
 			es: 'Shooter en primera persona ambientado en un universo de legiones. Proyecto privado en desarrollo.',
 			en: 'First-person shooter set in a legion-themed universe. Private project in development.'
@@ -551,6 +551,21 @@ export const projects: Project[] = [
 		category: 'game',
 		visibility: 'closed',
 		hidden: true,
+		year: 2026
+	},
+	{
+		id: 'let-it-rip',
+		name: 'Let It Rip',
+		description: {
+			es: 'Juego web de combate con estilo arcade disponible en let-it-rip.trefu.ar.',
+			en: 'Web combat game with arcade style available at let-it-rip.trefu.ar.'
+		},
+		techs: ['Godot', 'GDScript'],
+		category: 'game',
+		liveUrl: 'https://let-it-rip.trefu.ar',
+		previewImage: '/previews/let-it-rip.gif',
+		visibility: 'open',
+		featured: true,
 		year: 2026
 	}
 ];

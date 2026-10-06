@@ -39,7 +39,7 @@ export const projects: Project[] = [
         techs: ['Vue', 'Vite', 'JavaScript'],
         category: 'web',
         githubUrl: 'https://github.com/Trefu/-rpg-js',
-        liveUrl: 'https://criticalfu.trefu.ar',
+        liveUrl: 'https://rpg.trefu.ar',
         previewImage: '/previews/rpg-js.png',
         mockup: { theme: 'fantasy', icon: 'sword3', subtitle: { es: 'QTE, animaciones y combate', en: 'QTE, animations and combat' } },
         visibility: 'open',
